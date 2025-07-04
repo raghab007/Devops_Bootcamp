@@ -5,14 +5,17 @@ FROM node:22-alpine
 #Working directory
 WORKDIR /app
 
-#Copy over files
-COPY . .
+
+COPY ./package.json ./package.json
 
 #Run command to build the code
 RUN npm install
 
+#Copy over files
+COPY . .
+
 #Exposing ports
-EXPOSE 9091
+EXPOSE 9092
 
 #Final command that runs when running the container
 CMD [ "node", "index.js" ]
